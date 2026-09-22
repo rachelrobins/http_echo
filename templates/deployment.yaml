@@ -41,11 +41,11 @@ spec:
               containerPort: 5678
               protocol: TCP
           livenessProbe:
-            exec:
-              command:
-                - /bin/bash
-                - -c
-                - "wget --spider -q http://localhost:{{ .Values.service.port }}"
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
