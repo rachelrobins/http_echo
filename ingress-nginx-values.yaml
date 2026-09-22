@@ -1,0 +1,13 @@
+controller:
+  service:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+    ports:
+      http: 80
+      https: 443
+
+rbac:
+  create: true
+
+admissionWebhooks:
+  enabled: false
